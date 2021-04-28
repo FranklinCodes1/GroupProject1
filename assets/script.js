@@ -1,2 +1,7 @@
 var searchBtn = $('.button')
-searchBtn.click(handleSearch)
+searchBtn.click()
+console.log("This shit here works!")
+
+function conductSearch() {
+
+}
