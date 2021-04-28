@@ -1,7 +1,11 @@
 var searchBtn = $('.button')
-searchBtn.click()
-console.log("This shit here works!")
+searchBtn.click(conductSearch)
 
+
+<<<<<<< HEAD
 function conductSearch() {
-
+console.log("This shit here works!")
 }
+=======
+}
+>>>>>>> main
