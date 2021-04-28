@@ -9,19 +9,27 @@ function initMap() {
       map: map,
     });
   }
-var searchBtn = $('.button')
+
+  //=======================
+var LocalStorageKey = "userSearch"
+var userSearch = {}; //search object to be saved in local storage
+
+var searchBtn = $('.button')//assigns function to save button
 searchBtn.click(conductSearch)
-
-
 
 function conductSearch(event) {
  event.preventDefault();
     //create
- var userStart = document.getElementById("startPoint")
- var userEnd = document.getElementById("endPoint")
- var userInterest = document.getElementById("interestPoint")
+ var userStart = document.getElementById("startPoint");
+ var userEnd = document.getElementById("endPoint");
+ var userInterest = document.getElementById("interestPoint");
 
-    //build
-
+  if (userStart !== null) {
+    console.log("This my start point")
+  }  if (userEnd !== null) {
+      console.log("This my end point")
+  }    if (userInterest !== null) {
+      console.log("I choose Dunkin!")      
+  }
 console.log("This shit here works!")
 }
