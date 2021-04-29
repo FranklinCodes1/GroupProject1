@@ -1,5 +1,11 @@
+navigator.geolocation.getCurrentPosition((position) => {
+  doSomething(position.coords.latitude, position.coords.longitude);
+  console.log(geolocatioan)
+});
+
+
 function initMap() {
-    const uluru = { lat: -25.344, lng: 131.036 };
+    const uluru = { lat: -74.0060, lng: 40.7128 }; //40.7128° N, 74.0060° W
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
       center: uluru,
@@ -102,6 +108,7 @@ var stepDisplay;
 var markerArray = [];
 
 function initMap() {
+<<<<<<< HEAD
   // Instantiate a directions service.
   directionsService = new google.maps.DirectionsService();
 
@@ -155,6 +162,17 @@ function calcRoute() {
       directionsRenderer.setDirections(response);
       showSteps(response);
     }
+=======
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer();
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 11,
+    center: { lat: 40.7128, lng: -74.0060 }, //40.7128° N, 74.0060° W
+  });
+  directionsRenderer.setMap(map);
+  document.getElementById("submit").addEventListener("click", () => {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+>>>>>>> main
   });
 
 }
@@ -173,6 +191,7 @@ function showSteps(directionResult) {
       attachInstructionText(marker, myRoute.steps[i].instructions);
       markerArray[i] = marker;
   }
+<<<<<<< HEAD
 }
 
 function attachInstructionText(marker, text) {
@@ -181,3 +200,37 @@ function attachInstructionText(marker, text) {
     stepDisplay.open(map, marker);
   });
 }
+=======
+  directionsService.route(
+    {
+      origin: document.getElementById("start").value,
+      destination: document.getElementById("end").value,
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: google.maps.TravelMode.DRIVING,
+    },
+    (response, status) => {
+      if (status === "OK" && response) {
+        directionsRenderer.setDirections(response);
+        const route = response.routes[0];
+        const summaryPanel = document.getElementById("directions-panel");
+        summaryPanel.innerHTML = "";
+        // For each route, display summary information.
+        for (let i = 0; i < route.legs.length; i++) {
+          const routeSegment = i + 1;
+          summaryPanel.innerHTML +=
+            "<b>Route Segment: " + routeSegment + "</b><br>";
+          summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+          summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+          summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+        }
+      } else {
+        window.alert("Directions request failed due to " + status);
+      }
+    }
+  );
+}
+
+
+
+>>>>>>> main
