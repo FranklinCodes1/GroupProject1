@@ -10,7 +10,8 @@ function initMap() {
     });
   }
 
-  //=======================
+//=======================FORM INPUTS AND BUTTON=====================//
+
 var LocalStorageKey = "userSearch"
 var userSearch = {}; //search object to be saved in local storage
 
@@ -20,20 +21,21 @@ searchBtn.click(conductSearch)
 function conductSearch(event) {
  event.preventDefault();
     //create
- var userStart = document.getElementById("startPoint");
- var userEnd = document.getElementById("endPoint");
- var userInterest = document.getElementById("interestPoint");
+ var userStart = document.getElementById("startPoint").value;
+ var userEnd = document.getElementById("endPoint").value;
+ var userInterest = document.getElementById("interestPoint").value;
 
   if (userStart !== null) {
-    console.log("This my start point")
+    console.log("Start point: " + userStart)
   }  if (userEnd !== null) {
-      console.log("This my end point")
+      console.log("End Point: " + userEnd)
   }    if (userInterest !== null) {
-      console.log("I choose Dunkin!")      
+      console.log("Dunkin: " + userInterest)      
   }
 console.log("This shit here works!")
 }
 
+//==================================================================//
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
