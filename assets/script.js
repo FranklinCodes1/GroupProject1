@@ -16,7 +16,8 @@ function initMap() {
     });
   }
 
-  //=======================
+//=======================FORM INPUTS AND BUTTON=====================//
+
 var LocalStorageKey = "userSearch"
 var userSearch = {}; //search object to be saved in local storage
 
@@ -26,20 +27,46 @@ searchBtn.click(conductSearch)
 function conductSearch(event) {
  event.preventDefault();
     //create
- var userStart = document.getElementById("startPoint");
- var userEnd = document.getElementById("endPoint");
- var userInterest = document.getElementById("interestPoint");
+ var userStart = document.getElementById("startPoint").value;
+ var userEnd = document.getElementById("endPoint").value;
+ var userInterest = document.getElementById("interestPoint").value;
 
-  if (userStart !== null) {
-    console.log("This my start point")
-  }  if (userEnd !== null) {
-      console.log("This my end point")
-  }    if (userInterest !== null) {
-      console.log("I choose Dunkin!")      
-  }
+  if (!userStart) {
+    console.log("This was left blank")
+  }  else
+    console.log("Start Point: " + userStart)
+  
+  if (!userEnd) {
+      console.log("This was left blank")
+  }  else
+    console.log("End Point: " + userEnd)
+
+  if (!userInterest) {
+    console.log("This was left blank")
+  }  else
+    console.log("Interest Point: " + userInterest)      
+  
 console.log("This shit here works!")
+
+    userSearch[userStart, userEnd, userInterest] = text
+    SetSearch();
+}
+GetSearch();
+
+function SetSearch() {
+  SetLocalStorage(LocalStorageKey, userSearch) 
+}
+function GetSearch() {
+  userSearch = GetLocalStorage(LocalStorageKey) || {}
+}
+function SetLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value))
+}
+function GetLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key))
 }
 
+//==================================================================//
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
