@@ -108,7 +108,6 @@ var stepDisplay;
 var markerArray = [];
 
 function initMap() {
-<<<<<<< HEAD
   // Instantiate a directions service.
   directionsService = new google.maps.DirectionsService();
 
@@ -156,23 +155,14 @@ function calcRoute() {
   // function to create markers for each step.
   directionsService.route(request, function(response, status) {
     console.log(response.routes[0].legs[0].start_location.lat())
+    console.log(response.routes[0].legs[0].start_location.lng())
+    console.log(response)
     if (status == "OK") {
       // var warnings = document.getElementById("warnings_panel");
       // warnings.innerHTML = "" + response.routes[0].warnings + "";
       directionsRenderer.setDirections(response);
       showSteps(response);
     }
-=======
-  const directionsService = new google.maps.DirectionsService();
-  const directionsRenderer = new google.maps.DirectionsRenderer();
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 11,
-    center: { lat: 40.7128, lng: -74.0060 }, //40.7128° N, 74.0060° W
-  });
-  directionsRenderer.setMap(map);
-  document.getElementById("submit").addEventListener("click", () => {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
->>>>>>> main
   });
 
 }
@@ -191,7 +181,6 @@ function showSteps(directionResult) {
       attachInstructionText(marker, myRoute.steps[i].instructions);
       markerArray[i] = marker;
   }
-<<<<<<< HEAD
 }
 
 function attachInstructionText(marker, text) {
@@ -200,37 +189,3 @@ function attachInstructionText(marker, text) {
     stepDisplay.open(map, marker);
   });
 }
-=======
-  directionsService.route(
-    {
-      origin: document.getElementById("start").value,
-      destination: document.getElementById("end").value,
-      waypoints: waypts,
-      optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING,
-    },
-    (response, status) => {
-      if (status === "OK" && response) {
-        directionsRenderer.setDirections(response);
-        const route = response.routes[0];
-        const summaryPanel = document.getElementById("directions-panel");
-        summaryPanel.innerHTML = "";
-        // For each route, display summary information.
-        for (let i = 0; i < route.legs.length; i++) {
-          const routeSegment = i + 1;
-          summaryPanel.innerHTML +=
-            "<b>Route Segment: " + routeSegment + "</b><br>";
-          summaryPanel.innerHTML += route.legs[i].start_address + " to ";
-          summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
-          summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
-        }
-      } else {
-        window.alert("Directions request failed due to " + status);
-      }
-    }
-  );
-}
-
-
-
->>>>>>> main
