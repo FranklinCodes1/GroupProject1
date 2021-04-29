@@ -9,23 +9,33 @@ function initMap() {
       map: map,
     });
   }
-var searchBtn = $('.button')
+
+//=======================FORM INPUTS AND BUTTON=====================//
+
+var LocalStorageKey = "userSearch"
+var userSearch = {}; //search object to be saved in local storage
+
+var searchBtn = $('.button')//assigns function to save button
 searchBtn.click(conductSearch)
-
-
 
 function conductSearch(event) {
  event.preventDefault();
     //create
- var userStart = document.getElementById("startPoint")
- var userEnd = document.getElementById("endPoint")
- var userInterest = document.getElementById("interestPoint")
+ var userStart = document.getElementById("startPoint").value;
+ var userEnd = document.getElementById("endPoint").value;
+ var userInterest = document.getElementById("interestPoint").value;
 
-    //build
-
+  if (userStart !== null) {
+    console.log("Start point: " + userStart)
+  }  if (userEnd !== null) {
+      console.log("End Point: " + userEnd)
+  }    if (userInterest !== null) {
+      console.log("Dunkin: " + userInterest)      
+  }
 console.log("This shit here works!")
 }
 
+//==================================================================//
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
