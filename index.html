@@ -13,8 +13,8 @@
 <body>
   <main>
 
-    <header class="hero is-primary has-text-centered is-size-1">
-        <h1>On The Way</h1>
+    <header class="hero is-primary has-text-centered is-size-1 is-italic">
+        <h1>====On The Way===></h1>
     </header>
     <section class="columns">
       <form class="column is-one-third">
@@ -35,53 +35,14 @@
         <div class="field">
             <label class="label">Interest</label>
             <div class="control">
-             <input id="interestPoint" class="input" type="text" placeholder="Dunkin' Donuts">
+            <input id="interestPoint" class="input" type="text" placeholder="Dunkin' Donuts">
             </div>
         </div>
 
-        <button class="button is-primary">Find On My Way</button>
+        <button id="submit" class="button is-primary">Find On My Way</button>
     </form>
     <!-- MAP -->
 
-      <div id="map"></div>   
-        <div id="right-panel">
-        <div>
-            <b>Start:</b>
-            <select id="start">
-              <option value="Halifax, NS">Halifax, NS</option>
-              <option value="Boston, MA">Boston, MA</option>
-              <option value="New York, NY">New York, NY</option>
-              <option value="Miami, FL">Miami, FL</option>
-            </select>
-            <br />
-            <b>Waypoints:</b> <br />
-            <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
-            <select multiple id="waypoints">
-              <option value="montreal, quebec">Montreal, QBC</option>
-              <option value="toronto, ont">Toronto, ONT</option>
-              <option value="chicago, il">Chicago</option>
-              <option value="winnipeg, mb">Winnipeg</option>
-              <option value="fargo, nd">Fargo</option>
-              <option value="calgary, ab">Calgary</option>
-              <option value="spokane, wa">Spokane</option>
-              <option value="los angeles, ca">Los Angeles</option>
-            </select>
-            <br />
-            <b>End:</b>
-            <select id="end">
-              <option value="Vancouver, BC">Vancouver, BC</option>
-              <option value="Seattle, WA">Seattle, WA</option>
-              <option value="San Francisco, CA">San Francisco, CA</option>
-              <option value="Los Angeles, CA">Los Angeles, CA</option>
-            </select>
-            <br />
-            <input type="submit" id="submit" />
-          </div>
-          <div id="directions-panel"></div>
-        </div>
-   
-  <footer>This Is our footer</footer>
-=======
       <div id="map" class="column"></div> 
     </section>
 
@@ -92,7 +53,7 @@
       <p>&copy KLMS 2021</p>
   </footer>
 
->>>>>>> 2d72a31f7e751a0ea16961745a0d961aa2f81797
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
       async
