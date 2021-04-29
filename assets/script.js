@@ -25,13 +25,21 @@ function conductSearch(event) {
  var userEnd = document.getElementById("endPoint").value;
  var userInterest = document.getElementById("interestPoint").value;
 
-  if (userStart !== null) {
-    console.log("Start point: " + userStart)
-  }  if (userEnd !== null) {
-      console.log("End Point: " + userEnd)
-  }    if (userInterest !== null) {
-      console.log("Dunkin: " + userInterest)      
-  }
+  if (!userStart) {
+    console.log("This was left blank")
+  }  else
+    console.log("Start Point: " + userStart)
+  
+  if (!userEnd) {
+      console.log("This was left blank")
+  }  else
+    console.log("End Point: " + userEnd)
+
+  if (!userInterest) {
+    console.log("This was left blank")
+  }  else
+    console.log("Interest Point: " + userInterest)      
+  
 console.log("This shit here works!")
 }
 
