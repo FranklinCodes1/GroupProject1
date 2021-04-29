@@ -41,6 +41,23 @@ function conductSearch(event) {
     console.log("Interest Point: " + userInterest)      
   
 console.log("This shit here works!")
+
+    userSearch[userStart, userEnd, userInterest] = text
+    SetSearch();
+}
+GetSearch();
+
+function SetSearch() {
+  SetLocalStorage(LocalStorageKey, userSearch) 
+}
+function GetSearch() {
+  userSearch = GetLocalStorage(LocalStorageKey) || {}
+}
+function SetLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value))
+}
+function GetLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key))
 }
 
 //==================================================================//
