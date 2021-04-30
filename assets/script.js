@@ -139,11 +139,11 @@ function calcRoute() {
 
   // Retrieve the start and end locations and create
   // a DirectionsRequest using WALKING directions.
-  // var start = document.getElementById('startPoint').value;
-  var start = "625 8th Avenue New York NY 10018";
+  var start = document.getElementById('startPoint').value;
+  
   console.log(start)
-  // var end = document.getElementById('endPoint').value;
-  var end = "260 Broadway New York NY 10007";
+  var end = document.getElementById('endPoint').value;
+  
   console.log(end)
   var request = {
       origin: start,
